@@ -213,7 +213,12 @@
                             }
                         ]
                     };
-                var createRegisterView = function(that, fields = FORM_DESCRIPTION.fields) {
+                var createRegisterView = function(that, formFields) {
+                    var fields = formFields;
+                    if (typeof fields === 'undefined') {
+                        fields = FORM_DESCRIPTION.fields;
+                    }
+
                 // Initialize the register model
                     model = new RegisterModel({}, {
                         url: FORM_DESCRIPTION.submit_url,
